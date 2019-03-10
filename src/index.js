@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const fileUploadRouter = require('./routes/file-upload.js');
+const fileUploadRouter = require('../routes/file-upload.js');
 
 app.use('/upload', fileUploadRouter);
 
