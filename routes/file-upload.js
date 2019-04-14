@@ -8,11 +8,16 @@ const singleUpload = upload.single('audio');
 router.post('/audio-upload', function(req, res){
     singleUpload(req, res, function(err, some) {
         if(err) {
-            return res.status(442).send({errors: [{title: "Audio Upload Error", detail: err.message}] });
+            return res.render('../views/uploader', {msg : err});
+        } else {
+            if(req.file == undefined) {
+                res.render('../views/uploader', {msg : 'No file selected!'});
+            } else {
+                res.render('../views/uploader', {msg : 'File uploaded successfully!'});
+            }
         }
+    });
 
-        return res.json({'audioUrl': req.file.location});
-    })
 });
 
 module.exports = router;
