@@ -36,7 +36,8 @@ const upload = multer({
         }
     }),
     fileFilter: function (req, file,cb) {
-        if (path.extname(file.originalname) !== '.mp3' || path.extname(file.originalname) !== '.wav') {
+        if (path.extname(file.originalname) !== '.mp3' && path.extname(file.originalname) !== '.wav') {
+            console.log(path.extname(file.originalname));
             return cb(new Error('Only audio files are allowed'))
         }
       
