@@ -45,7 +45,7 @@ app.get('/home' , function(req, res) {
 app.get('/player', function(req, res){
     let id = req.query.id;
     console.log('ID: ' + id);
-    db.get(`SELECT name, contributor, link FROM songs WHERE id = ${id}`, function(err, row){
+    db.get(`SELECT name, contributor, link FROM songs WHERE id = ${id} `, function(err, row){
         console.log(row);
         res.render('player', {song: row})
     })
