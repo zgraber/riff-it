@@ -9,7 +9,7 @@ var db = new sqlite3.Database('mydb.db');
 const singleUpload = upload.single('audio');
 
 router.get('/', function(req, res) {
-    res.render('uploader');
+    res.render('editor');
 })
 
 router.post('/', upload.single('audio'),function(req, res){
